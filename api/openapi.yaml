@@ -1,0 +1,634 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+    title: ""
+    version: 0.0.1
+paths:
+    /v1/app/creatapp:
+        post:
+            tags:
+                - App
+            operationId: App_CreatApp
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/http.app.CreatAppRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/http.app.CreatAppReply'
+    /v1/app/getappbyid:
+        post:
+            tags:
+                - App
+            operationId: App_GetAppById
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/http.app.GetAppByIdRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/http.app.GetAppByIdReply'
+    /v1/app/listapppage:
+        post:
+            tags:
+                - App
+            description: 获取应用列表分页
+            operationId: App_ListAppPage
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/http.app.ListAppPageRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/http.app.ListAppPageReply'
+    /v1/app/modifyapp:
+        post:
+            tags:
+                - App
+            operationId: App_ModifyApp
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/http.app.ModifyAppRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/http.app.ModifyAppReply'
+    /v1/post/createpost:
+        post:
+            tags:
+                - Post
+            description: 创建帖子
+            operationId: Post_CreatePost
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/http.post.CreatePostRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/http.post.CreatePostReply'
+    /v1/question/adduseranswer:
+        post:
+            tags:
+                - Question
+            description: 懒得再开一个文件，所以把 UserAnswer 的接口也直接放这里了
+            operationId: Question_AddUserAnswer
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/http.question.AddUserAnswerRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/http.question.AddUserAnswerReply'
+    /v1/question/creatquestion:
+        post:
+            tags:
+                - Question
+            operationId: Question_CreatQuestion
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/http.question.CreatQuestionRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/http.question.CreatQuestionReply'
+    /v1/question/getresultbyid:
+        post:
+            tags:
+                - Question
+            operationId: Question_GetResultById
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/http.question.GetResultByIdRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/http.question.GetResultByIdReply'
+    /v1/question/listquestion:
+        post:
+            tags:
+                - Question
+            operationId: Question_ListQuestionByPage
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/http.question.ListQuestionByPageRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/http.question.ListQuestionByPageReply'
+    /v1/question/modifyquestion:
+        post:
+            tags:
+                - Question
+            operationId: Question_ModifyQuestion
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/http.question.ModifyQuestionRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/http.question.ModifyQuestionReply'
+    /v1/user/getuser:
+        post:
+            tags:
+                - User
+            operationId: User_GetCurrentUser
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/http.user.GetCurrentUserRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/http.user.GetCurrentUserReply'
+    /v1/user/list:
+        post:
+            tags:
+                - User
+            operationId: User_List
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/http.user.ListRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/http.user.ListReply'
+    /v1/user/listbypage:
+        post:
+            tags:
+                - User
+            operationId: User_ListUserByPage
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/http.user.ListUserByPageRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/http.user.ListUserByPageReply'
+    /v1/user/login:
+        post:
+            tags:
+                - User
+            description: 用户端登录
+            operationId: User_Login
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/http.user.LoginRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/http.user.LoginReply'
+    /v1/user/register:
+        post:
+            tags:
+                - User
+            description: 用户注册
+            operationId: User_Register
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/http.user.RegisterRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/http.user.RegisterReply'
+components:
+    schemas:
+        http.app.AppInfo:
+            type: object
+            properties:
+                appName:
+                    type: string
+                appDesc:
+                    type: string
+                appIcon:
+                    type: string
+                appType:
+                    type: integer
+                    format: int32
+                scoringStrategy:
+                    type: integer
+                    format: int32
+                reviewStatus:
+                    type: integer
+                    format: int32
+                reviewMessage:
+                    type: string
+                reviewId:
+                    type: string
+                userId:
+                    type: string
+                appId:
+                    type: string
+        http.app.AppModInfo:
+            type: object
+            properties:
+                appName:
+                    type: string
+                appDesc:
+                    type: string
+                appIcon:
+                    type: string
+                appType:
+                    type: integer
+                    format: int32
+                scoringStrategy:
+                    type: integer
+                    format: int32
+        http.app.CreatAppReply:
+            type: object
+            properties: {}
+        http.app.CreatAppRequest:
+            type: object
+            properties:
+                appName:
+                    type: string
+                appDesc:
+                    type: string
+                appIcon:
+                    type: string
+                appType:
+                    type: integer
+                    format: int32
+                scoringStrategy:
+                    type: integer
+                    format: int32
+        http.app.GetAppByIdReply:
+            type: object
+            properties:
+                app:
+                    $ref: '#/components/schemas/http.app.AppInfo'
+                user:
+                    $ref: '#/components/schemas/http.app.UserInfo'
+        http.app.GetAppByIdRequest:
+            type: object
+            properties:
+                appId:
+                    type: string
+        http.app.ListAppPageReply:
+            type: object
+            properties:
+                appList:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/http.app.AppInfo'
+                total:
+                    type: integer
+                    format: int32
+        http.app.ListAppPageRequest:
+            type: object
+            properties:
+                current:
+                    type: integer
+                    format: int32
+                pageSize:
+                    type: integer
+                    format: int32
+        http.app.ModifyAppReply:
+            type: object
+            properties: {}
+        http.app.ModifyAppRequest:
+            type: object
+            properties:
+                appId:
+                    type: string
+                appModInfo:
+                    $ref: '#/components/schemas/http.app.AppModInfo'
+        http.app.UserInfo:
+            type: object
+            properties:
+                id:
+                    type: string
+                account:
+                    type: string
+                password:
+                    type: string
+                username:
+                    type: string
+                avatarUrl:
+                    type: string
+                gender:
+                    type: integer
+                    format: int32
+                userInfo:
+                    type: string
+                userRole:
+                    type: integer
+                    format: int32
+        http.post.CreatePostReply:
+            type: object
+            properties:
+                id:
+                    type: string
+        http.post.CreatePostRequest:
+            type: object
+            properties:
+                title:
+                    type: string
+                text:
+                    type: string
+                tags:
+                    type: string
+                userId:
+                    type: string
+        http.question.AddUserAnswerReply:
+            type: object
+            properties:
+                id:
+                    type: string
+        http.question.AddUserAnswerRequest:
+            type: object
+            properties:
+                appId:
+                    type: string
+                choices:
+                    type: array
+                    items:
+                        type: string
+        http.question.CreatQuestionReply:
+            type: object
+            properties: {}
+        http.question.CreatQuestionRequest:
+            type: object
+            properties:
+                appId:
+                    type: string
+                contents:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/http.question.QuestionContent'
+            description: 创建问题
+        http.question.GetResultByIdReply:
+            type: object
+            properties:
+                id:
+                    type: string
+                resultName:
+                    type: string
+                resultDesc:
+                    type: string
+        http.question.GetResultByIdRequest:
+            type: object
+            properties:
+                id:
+                    type: string
+        http.question.ListQuestionByPageReply:
+            type: object
+            properties:
+                appId:
+                    type: string
+                contents:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/http.question.QuestionContent'
+                    description: |-
+                        string createTime = 2;
+                          string updateTime = 3;
+        http.question.ListQuestionByPageRequest:
+            type: object
+            properties:
+                appId:
+                    type: string
+            description: 获取问题分页
+        http.question.ModifyQuestionReply:
+            type: object
+            properties: {}
+        http.question.ModifyQuestionRequest:
+            type: object
+            properties:
+                appId:
+                    type: string
+                contents:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/http.question.QuestionContent'
+            description: 修改问题内容
+        http.question.Option:
+            type: object
+            properties:
+                key:
+                    type: string
+                result:
+                    type: string
+                score:
+                    type: integer
+                    format: int32
+                value:
+                    type: string
+        http.question.QuestionContent:
+            type: object
+            properties:
+                options:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/http.question.Option'
+                title:
+                    type: string
+        http.user.GetCurrentUserReply:
+            type: object
+            properties:
+                id:
+                    type: string
+                account:
+                    type: string
+                password:
+                    type: string
+                username:
+                    type: string
+                avatarUrl:
+                    type: string
+                gender:
+                    type: integer
+                    format: int32
+                userInfo:
+                    type: string
+                userRole:
+                    type: integer
+                    format: int32
+        http.user.GetCurrentUserRequest:
+            type: object
+            properties: {}
+        http.user.ListReply:
+            type: object
+            properties:
+                username:
+                    type: string
+                avatarUrl:
+                    type: string
+                userInfo:
+                    type: string
+        http.user.ListRequest:
+            type: object
+            properties:
+                id:
+                    type: string
+        http.user.ListUserByPageReply:
+            type: object
+            properties:
+                userList:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/http.user.UserInfo'
+                total:
+                    type: integer
+                    format: int32
+        http.user.ListUserByPageRequest:
+            type: object
+            properties:
+                current:
+                    type: integer
+                    format: int32
+                pageSize:
+                    type: integer
+                    format: int32
+        http.user.LoginReply:
+            type: object
+            properties:
+                id:
+                    type: string
+                token:
+                    type: string
+            description: 返回前端的请求
+        http.user.LoginRequest:
+            type: object
+            properties:
+                account:
+                    type: string
+                password:
+                    type: string
+            description: |-
+                Register 用户登录
+                 前端传来的请求
+        http.user.RegisterReply:
+            type: object
+            properties:
+                id:
+                    type: string
+            description: 返回前端的请求
+        http.user.RegisterRequest:
+            type: object
+            properties:
+                account:
+                    type: string
+                password:
+                    type: string
+                checkPassword:
+                    type: string
+            description: |-
+                Register 用户注册
+                 前端传来的请求
+        http.user.UserInfo:
+            type: object
+            properties:
+                id:
+                    type: string
+                account:
+                    type: string
+                password:
+                    type: string
+                username:
+                    type: string
+                avatarUrl:
+                    type: string
+                gender:
+                    type: integer
+                    format: int32
+                userInfo:
+                    type: string
+                userRole:
+                    type: integer
+                    format: int32
+tags:
+    - name: App
+    - name: Post
+    - name: Question
+    - name: User

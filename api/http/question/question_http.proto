@@ -1,0 +1,119 @@
+syntax = "proto3";
+
+package http.question;
+
+import "google/api/annotations.proto";
+
+option go_package = "wuzigoweb/api/http/question;question";
+
+service Question {
+  rpc CreatQuestion (CreatQuestionRequest) returns (CreatQuestionReply) {
+    option (google.api.http) = {
+      post: "/v1/question/creatquestion",
+      body: "*",
+    };
+  }
+
+  rpc ModifyQuestion (ModifyQuestionRequest) returns (ModifyQuestionReply) {
+    option (google.api.http) = {
+      post: "/v1/question/modifyquestion",
+      body: "*",
+    };
+  }
+
+  rpc ListQuestionByPage (ListQuestionByPageRequest) returns (ListQuestionByPageReply) {
+    option (google.api.http) = {
+      post: "/v1/question/listquestion",
+      body: "*",
+    };
+  }
+
+  // 懒得再开一个文件，所以把 UserAnswer 的接口也直接放这里了
+  rpc AddUserAnswer (AddUserAnswerRequest) returns (AddUserAnswerReply) {
+    option (google.api.http) = {
+      post: "/v1/question/adduseranswer",
+      body: "*",
+    };
+  }
+
+  rpc GetResultById (GetResultByIdRequest) returns (GetResultByIdReply) {
+    option (google.api.http) = {
+      post: "/v1/question/getresultbyid",
+      body: "*",
+    };
+  }
+}
+
+message Option {
+  string key = 1;
+  string result = 2;
+  int32 score = 3;
+  string value = 4;
+}
+
+message QuestionContent {
+  repeated Option options = 1;
+  string title = 2;
+}
+
+message Questions {
+  int64 appId = 1;
+  repeated QuestionContent contents = 2;
+}
+
+// 创建问题
+message CreatQuestionRequest {
+  int64 appId = 1;
+  repeated QuestionContent contents = 2;
+}
+
+message CreatQuestionReply {}
+
+
+// 修改问题内容
+message ModifyQuestionRequest {
+  int64 appId = 1;
+  repeated QuestionContent contents = 2;
+}
+
+message ModifyQuestionReply {}
+
+
+// 获取问题分页
+message ListQuestionByPageRequest {
+  int64 appId = 1;
+//  int64 current = 2;
+//  int64 pageSize = 3;
+//  int64 id = 4;
+//  int64 notId = 5;
+//  string questionContent = 6;
+//  string sortField = 7;
+//  string sortOrder = 8;
+//  int64 userId = 9;
+}
+
+message ListQuestionByPageReply {
+  int64 appId = 1;
+//  string createTime = 2;
+//  string updateTime = 3;
+  repeated QuestionContent contents = 2;
+}
+
+message AddUserAnswerRequest {
+  int64 appId = 1;
+  repeated string choices = 2;
+}
+
+message AddUserAnswerReply {
+  int64 id = 1;
+}
+
+message GetResultByIdRequest {
+  int64 id = 1;
+}
+
+message GetResultByIdReply {
+  int64 id = 1;
+  string resultName = 2;
+  string resultDesc = 3;
+}
